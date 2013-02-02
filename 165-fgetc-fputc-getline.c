@@ -3,8 +3,8 @@
 
 #define MAXLINE 100
 
-char * fgetc1(char *s, int limit, FILE *fp);
-int fputc1(char *s, FILE *fp);
+char * fgets1(char *s, int limit, FILE *fp);
+int fputs1(char *s, FILE *fp);
 int getline1(char *line, int limit);
 int strlen1(char *s);
 
@@ -25,7 +25,7 @@ int main()
         exit(2);
     }
 
-    fputc1(fgetc1(line, MAXLINE, fp1), fp2);
+    fputs1(fgets1(line, MAXLINE, fp1), fp2);
 
     fclose(fp2);
     fclose(fp1);
@@ -37,7 +37,7 @@ int main()
     return 0;
 }
 
-char * fgetc1(char *s, int limit, FILE *fp)
+char * fgets1(char *s, int limit, FILE *fp)
 {
     int c;
     char *cs = s;
@@ -51,7 +51,7 @@ char * fgetc1(char *s, int limit, FILE *fp)
     return (cs == s && c == EOF) ? NULL : s;
 }
 
-int fputc1(char *s, FILE *fp)
+int fputs1(char *s, FILE *fp)
 {
     int c;
 
